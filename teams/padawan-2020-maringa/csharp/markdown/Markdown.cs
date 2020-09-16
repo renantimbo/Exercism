@@ -15,15 +15,7 @@ public static class Markdown
     private static string ParseText(string markdown, bool list)
     {
         var parsedText = Italic(Bold((markdown)));
-
-        if (list)
-        {
-            return parsedText;
-        }
-        else
-        {
-            return Wrap(parsedText, "p");
-        }
+        return list ? parsedText : Wrap(parsedText, "p");
     }
 
     private static string ParseHeader(string markdown, bool list, out bool inListAfter)
